@@ -1,5 +1,19 @@
 .container {
   padding: 0 2rem;
+  margin-top: 76px;
+  display: flex;
+  flex-flow: column;
+  /* width: 100vw; */
+  align-items: center;
+
+  gap: 2em;
+  /* width: 100%; */
+  /* background-color: blue; */
+  /* justify-content: center; */
+  /* justify-items: center; */
+}
+.grid {
+  min-width: 80vw;
 }
 
 .main {
