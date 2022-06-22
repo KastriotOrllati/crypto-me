@@ -1,0 +1,35 @@
+.mainContainer {
+  /* width: 90%; */
+  display: flex;
+  /* align-self: center; */
+  margin-inline: 10vw;
+  /* justify-self: center; */
+  /* justify-content: center; */
+  /* justify-content: center; */
+  /* background-color: blue; */
+}
+
+.leftContainer {
+  /* background-color: red; */
+  width: 65%;
+}
+.information > h1 {
+  /* font-size: larger; */
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.imageContainer {
+  width: 90%;
+  height: 500px;
+  position: relative;
+  border-radius: 30px;
+  background-color: red;
+  /* padding: 115px; */
+  overflow: hidden;
+}
+
+.rightContainer {
+  width: 35%;
+  background-color: blue;
+}

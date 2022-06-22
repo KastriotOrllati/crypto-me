@@ -4,7 +4,8 @@ import { ethers } from "ethers";
 import Web3Modal from "web3modal";
 import WalletConnect from "@walletconnect/web3-provider";
 import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
-
+import { Text } from "@nextui-org/react";
+import Link from "next/link";
 const providerOptions = {
   walletlink: {
     package: CoinbaseWalletSDK, // Required
@@ -176,11 +177,51 @@ function Navbar(props) {
 
   return (
     <div className={styles.navbar}>
-      <div>CryptoMe</div>
+      <Link href="/" passHref>
+        <div className={styles.logo}>
+          <Text
+            h1
+            size={40}
+            css={{
+              textGradient: "45deg, $blue600 -10%, $pink600 80%",
+            }}
+            weight="bold"
+          >
+            Go
+          </Text>
+          <Text
+            h1
+            size={40}
+            css={{
+              textGradient: "45deg, $purple600 -20%, $pink600 100%",
+            }}
+            weight="bold"
+          >
+            Crypto
+          </Text>
+          <Text
+            h1
+            size={40}
+            css={{
+              textGradient: "45deg, $yellow600 -20%, $red600 100%",
+            }}
+            weight="bold"
+          >
+            Me
+          </Text>
+        </div>
+      </Link>
+      <Link href="/fundraiser" passHref>
+        <div className={styles.item}>Fundraisers</div>
+      </Link>
       {!account ? (
-        <button onClick={connectWallet}>Connect Wallet</button>
+        <div className={styles.button} onClick={connectWallet}>
+          Connect Wallet
+        </div>
       ) : (
-        <button onClick={disconnect}>Disconnect</button>
+        <div className={styles.button} onClick={disconnect}>
+          Disconnect
+        </div>
       )}
     </div>
   );

@@ -4,9 +4,32 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: red;
+
+  background-color: #073255;
+  color: white;
+  font-size: larger;
+
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
+}
+.logo {
+  display: flex;
+  cursor: pointer;
+}
+
+.button {
+  background-color: #265377;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.item {
+  text-transform: uppercase;
+  color: #fff;
+  /* letter-spacing: 0.05em; */
+  font-size: larger;
+  cursor: pointer;
 }
