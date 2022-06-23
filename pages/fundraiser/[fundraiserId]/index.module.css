@@ -15,7 +15,7 @@
 }
 
 .leftContainer {
-  /* background-color: red; */
+  background-color: initial;
   /* width: 65%; */
 }
 .information > p {
@@ -61,10 +61,6 @@
 
 .details > * {
   margin-bottom: 15px;
-}
-
-.donation {
-  /* background-color: red; */
 }
 
 .buttons {

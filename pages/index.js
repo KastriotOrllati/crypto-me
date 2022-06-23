@@ -15,29 +15,7 @@ export default function Home() {
   const contractAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
   useEffect(() => {
     getAllCampaigns();
-    getAllFunders();
   }, []);
-
-  async function getAllFunders() {
-    const provider = new ethers.providers.JsonRpcProvider();
-    const signer = provider.getSigner();
-    const contract = new ethers.Contract(
-      contractAddress,
-      CrowdFund.abi,
-      signer
-    );
-    const data = await contract.getAllFunders(1);
-    const items = await Promise.all(
-      data.map(async (item) => {
-        let funder = {
-          address: item.addr,
-          amount: item.amount,
-        };
-        return funder;
-      })
-    );
-    console.log(items, "funders");
-  }
 
   async function getAllCampaigns() {
     const provider = new ethers.providers.JsonRpcProvider();
