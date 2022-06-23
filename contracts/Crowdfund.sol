@@ -51,9 +51,9 @@ contract Crowdfund {
         //     addr: msg.sender,
         //     amount: msg.value
         // });
-        if (c.amount >= c.fundingGoal) {
-            revert();
-        }
+        // if (c.amount >= c.fundingGoal) {
+        //     revert();
+        // }
         c.funders.push(Funder({addr: msg.sender, amount: msg.value}));
         c.numFunders++;
         c.amount += msg.value;

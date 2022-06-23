@@ -15,7 +15,30 @@ export default function Home() {
   const contractAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
   useEffect(() => {
     getAllCampaigns();
+    getAllFunders();
   }, []);
+
+  async function getAllFunders() {
+    const provider = new ethers.providers.JsonRpcProvider();
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(
+      contractAddress,
+      CrowdFund.abi,
+      signer
+    );
+    const data = await contract.getAllFunders(1);
+    const items = await Promise.all(
+      data.map(async (item) => {
+        let funder = {
+          address: item.addr,
+          amount: item.amount,
+        };
+        return funder;
+      })
+    );
+    console.log(items, "funders");
+  }
+
   async function getAllCampaigns() {
     const provider = new ethers.providers.JsonRpcProvider();
     const signer = provider.getSigner();
@@ -36,7 +59,7 @@ export default function Home() {
           description: item.description,
           title: item.title,
           funders: item.funders,
-          amount: item.amount.toNumber(),
+          amount: ethers.utils.formatEther(item.amount),
           numFunders: item.numFunders.toNumber(),
         };
         return fundraiser;
@@ -64,7 +87,9 @@ export default function Home() {
         "https://images.pexels.com/photos/6646917/pexels-photo-6646917.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
       );
       await transaction.wait();
+      getAllCampaigns();
       console.log(transaction, "transaction");
+      console.log(contract, "contract");
     } catch (error) {
       console.log(error);
     }
